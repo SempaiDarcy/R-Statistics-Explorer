@@ -1,6 +1,8 @@
 # Загружаем данные из файла CSV, который находится в папке "data"
-state <- read.csv(file="../data/state.csv")
-# print(state)  # Эта строка закомментирована, чтобы не выводить весь набор данных
+state <- read.csv(file="./data/state.csv")
+print(state)
+
+# Эта строка закомментирована, чтобы не выводить весь набор данных
 
 # Вычисляем среднее значение численности населения
 res <- mean(state[["Population"]])
@@ -16,3 +18,6 @@ print(res2)
 res3 <- median(state[["Population"]])
 print(res3)
 # [1] 4436370  # Это медианное значение, которое делит население на две равные части
+
+weighted.mean(state[["Murder.Rate"]], w=state[["Population"]])
+weightedMedian(state[["Murder.Rate"]], w=state[["Population"]])
